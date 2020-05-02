@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Randomness</title>
+  </head>
+  <body id="body" onload="newColor()">
+    <div class="color-name" id="colorName">
+      #FFFFFF
+    </div>
+    <div class="alert" id="copyAlert"></div>
+    <input type="text" id="myInput" style="height: 0; opacity: 0;" />
+    <div class="btn-wrapper">
+      <button class="btn" onclick="myFunction()">Copy</button>
+      <button class="btn" onClick="refresh()">Refresh</button>
+    </div>
+  </body>
+  <script>
+    var body = document.getElementById("body");
+    var copyAlert = document.getElementById("copyAlert");
+    var colorName = document.getElementById("colorName");
+    var color = "";
+
+    function newColor() {
+      for (let i = 0; i < 6; i++) {
+        var x = Math.floor(Math.random() * 16);
+        switch (x) {
+          case 10:
+            x = "A";
+            break;
+          case 11:
+            x = "B";
+            break;
+          case 12:
+            x = "C";
+            break;
+          case 13:
+            x = "D";
+            break;
+          case 14:
+            x = "E";
+            break;
+          case 15:
+            x = "F";
+            break;
+          default:
+            x = x;
+        }
+        color = color + "" + x;
+      }
+      body.style.backgroundColor = "#" + color;
+      colorName.innerText = "#" + color;
+    }
+
+    function refresh() {
+      color = "";
+      newColor();
+    }
+
+    function myFunction() {
+      var copyText = document.getElementById("myInput");
+      copyText.value = "#" + color;
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      copyAlert.innerText = "#" + color + " copied";
+    }
+  </script>
+</html>

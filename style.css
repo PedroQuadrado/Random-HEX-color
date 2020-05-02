@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    font-size: 80px;
+    
+}
+.alert{
+    font-size: 10px;
+    opacity: 0.9;
+}
+.btn{
+    background: none;
+    width: 110px;
+    padding: 3px;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    border: 2px solid white;
+    outline: 0;
+}
+.btn:hover{
+    animation: btnHover 3s linear forwards;
+    cursor: pointer;
+}
+@keyframes btnHover {
+    0%{
+        background-color: none;
+    }
+    100%{
+        background-color: #ffffff56;
+    }
+}
